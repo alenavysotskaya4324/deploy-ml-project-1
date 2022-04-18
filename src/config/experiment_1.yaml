@@ -1,0 +1,16 @@
+experiments:
+  name_experiment: "baseline"
+  run_name: "random_forest_model_baseline"
+
+data:
+  random_state: 42
+  target: 'count'
+  categorical_columns: ['season', 'holiday', 'workingday',
+       'month', 'dayofweek', 'weekend', 'good_weather']
+  numerical_columns: ['temp', 'atemp', 'humidity', 'windspeed', 'month', 'year', 'hour']
+
+enc:
+  _target_: category_encoders.TargetEncoder
+
+model:
+  _target_: sklearn.ensemble.RandomForestRegressor
